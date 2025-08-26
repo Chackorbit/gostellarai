@@ -1,0 +1,106 @@
+:root {
+  --white: rgba(255, 255, 255, 1);
+  --blue-gray: rgba(50, 50, 68, 1);
+  --dark-grey: rgba(9, 9, 11, 1);
+  --header-1-font-family: "Inter", Helvetica;
+  --header-1-font-weight: 800;
+  --header-1-font-size: 62px;
+  --header-1-letter-spacing: 0px;
+  --header-1-line-height: 48px;
+  --header-1-font-style: normal;
+  --gostellar-bright-boost-lovable-app-inter-regular-font-family: "Inter",
+    Helvetica;
+  --gostellar-bright-boost-lovable-app-inter-regular-font-weight: 400;
+  --gostellar-bright-boost-lovable-app-inter-regular-font-size: 18px;
+  --gostellar-bright-boost-lovable-app-inter-regular-letter-spacing: 0px;
+  --gostellar-bright-boost-lovable-app-inter-regular-line-height: 29.25px;
+  --gostellar-bright-boost-lovable-app-inter-regular-font-style: normal;
+  --gostellar-bright-boost-lovable-app-inter-bold-font-family: "Inter",
+    Helvetica;
+  --gostellar-bright-boost-lovable-app-inter-bold-font-weight: 700;
+  --gostellar-bright-boost-lovable-app-inter-bold-font-size: 24px;
+  --gostellar-bright-boost-lovable-app-inter-bold-letter-spacing: 0px;
+  --gostellar-bright-boost-lovable-app-inter-bold-line-height: 32px;
+  --gostellar-bright-boost-lovable-app-inter-bold-font-style: normal;
+  --ayurr9cswuu3-trickle-host-inter-regular-font-family: "Inter", Helvetica;
+  --ayurr9cswuu3-trickle-host-inter-regular-font-weight: 400;
+  --ayurr9cswuu3-trickle-host-inter-regular-font-size: 16px;
+  --ayurr9cswuu3-trickle-host-inter-regular-letter-spacing: 0px;
+  --ayurr9cswuu3-trickle-host-inter-regular-line-height: 24px;
+  --ayurr9cswuu3-trickle-host-inter-regular-font-style: normal;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-item-font-family: "Inter",
+    Helvetica;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-item-font-weight: 400;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-item-font-size: 16px;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-item-letter-spacing: 0px;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-item-line-height: 24px;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-item-font-style: normal;
+  --ayurr9cswuu3-trickle-host-inter-bold-font-family: "Inter", Helvetica;
+  --ayurr9cswuu3-trickle-host-inter-bold-font-weight: 700;
+  --ayurr9cswuu3-trickle-host-inter-bold-font-size: 16px;
+  --ayurr9cswuu3-trickle-host-inter-bold-letter-spacing: 0px;
+  --ayurr9cswuu3-trickle-host-inter-bold-line-height: 24px;
+  --ayurr9cswuu3-trickle-host-inter-bold-font-style: normal;
+  --gostellar-bright-boost-lovable-app-semantic-heading-2-font-family: "Inter",
+    Helvetica;
+  --gostellar-bright-boost-lovable-app-semantic-heading-2-font-weight: 700;
+  --gostellar-bright-boost-lovable-app-semantic-heading-2-font-size: 36px;
+  --gostellar-bright-boost-lovable-app-semantic-heading-2-letter-spacing: 0px;
+  --gostellar-bright-boost-lovable-app-semantic-heading-2-line-height: 40px;
+  --gostellar-bright-boost-lovable-app-semantic-heading-2-font-style: normal;
+  --gostellarai-cyberpunk-launch-lovable-app-inter-regular-font-family: "Inter",
+    Helvetica;
+  --gostellarai-cyberpunk-launch-lovable-app-inter-regular-font-weight: 400;
+  --gostellarai-cyberpunk-launch-lovable-app-inter-regular-font-size: 60px;
+  --gostellarai-cyberpunk-launch-lovable-app-inter-regular-letter-spacing: 0px;
+  --gostellarai-cyberpunk-launch-lovable-app-inter-regular-line-height: 60px;
+  --gostellarai-cyberpunk-launch-lovable-app-inter-regular-font-style: normal;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-heading-2-font-family: "Inter",
+    Helvetica;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-heading-2-font-weight: 700;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-heading-2-font-size: 60px;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-heading-2-letter-spacing: 0px;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-heading-2-line-height: 60px;
+  --gostellarai-cyberpunk-launch-lovable-app-semantic-heading-2-font-style: normal;
+  --retro-remix-web-lovable-app-color-grey-65: rgba(161, 161, 170, 1);
+  --gostellarai-cyberpunk-launch-lovable-app-color-grey-95: rgba(
+    242,
+    242,
+    242,
+    1
+  );
+  --gostellarai-cyberpunk-launch-lovable-app-color-violet-55: rgba(
+    160,
+    43,
+    238,
+    1
+  );
+  --gostellarai-cyberpunk-launch-lovable-app-color-azure-50: rgba(
+    0,
+    191,
+    255,
+    1
+  );
+  --gostellarai-cyberpunk-launch-lovable-app-color-red-55: rgba(255, 26, 83, 1);
+  --gostellarai-cyberpunk-launch-lovable-app-color-cyan-50: rgba(
+    0,
+    255,
+    255,
+    1
+  );
+  --gostellarai-cyberpunk-launch-lovable-app-font-size-16: 16px;
+  --gostellarai-cyberpunk-launch-lovable-app-item-spacing-15: 15px;
+  --gostellarai-cyberpunk-launch-lovable-app-font-size-24: 24px;
+  --gostellarai-cyberpunk-launch-lovable-app-item-spacing-xl: 64px;
+  --gostellarai-cyberpunk-launch-lovable-app-item-spacing-23-3: 23.299999237060547px;
+  --gostellarai-cyberpunk-launch-lovable-app-color-blue-4: rgba(9, 9, 11, 1);
+  --gostellarai-cyberpunk-launch-lovable-app-width-768: 768px;
+  --gostellarai-cyberpunk-launch-lovable-app-item-spacing-7-5: 7.5px;
+  --gostellarai-cyberpunk-launch-lovable-app-item-spacing-0: 3.552713678800501e-15px;
+  --gostellarai-cyberpunk-launch-lovable-app-width-1400: 1400px;
+  --gostellarai-cyberpunk-launch-lovable-app-line-height-32: 32px;
+  --gostellarai-cyberpunk-launch-lovable-app-item-spacing-l: 48px;
+  --gostellarai-cyberpunk-launch-lovable-app-color-blue-8: rgba(17, 17, 23, 1);
+  --gostellarai-cyberpunk-launch-lovable-app-height-1200: 1200px;
+  --ayurr9cswuu3-trickle-host-color-azure-50-duplicate: rgba(0, 191, 255, 1);
+}
