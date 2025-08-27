@@ -387,7 +387,7 @@
               >
             </div>
             <div class="logo-wrapper">
-              <img class="logo-2" src="img/image.png" />
+              <img class="logo-2" src="img/image(15).png" />
             </div>
             <div class="div-wrapper-2">
               <div class="component-11">
@@ -434,14 +434,43 @@
             </div>
           </div>
         </div>
+
         <div class="component-13">
-          <img class="frame-5" src="img/frame-24.svg" />
+          <div class="video-carousel" id="videoCarousel">
+            <div class="video-wrapper">
+              <video class="carousel-video" src="./LP_final2.mp4"></video>
+            </div>
+
+            <div class="video-wrapper">
+              <video
+                class="carousel-video"
+                src="./LD-ALL-ALL-NoLocation-ActAIMoo1-ALL-HookLabourDay-MoosePilot-Vid-1to1.mp4"
+              ></video>
+            </div>
+            <div class="video-wrapper">
+              <video
+                class="carousel-video"
+                src="./LD-ALL-ALL-NoLocation-ActAIGO1-ALL-HookLabourDay-VFinishLine-Vid-1to1.mp4"
+              ></video>
+            </div>
+            <div class="video-wrapper">
+              <video
+                class="carousel-video"
+                src="./LD-ALL-ALL-NoLocation-ActAIBB1-ALL-HookCanadaDay-V1-Vid-1to1.mp4"
+              ></video>
+            </div>
+
+            <div class="video-wrapper">
+              <video class="carousel-video" src="./Lucky days9_16.mp4"></video>
+            </div>
+          </div>
+
           <div class="frame-wrapper">
             <div class="frame-6">
-              <div class="arrow-right">
+              <div class="arrow-left" id="prevBtn">
                 <img class="icon" src="img/icon-2.svg" />
               </div>
-              <div class="icon-wrapper">
+              <div class="arrow-right" id="nextBtn">
                 <img class="icon-2" src="img/icon.svg" />
               </div>
             </div>
@@ -449,5 +478,48 @@
         </div>
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.getElementById("videoCarousel");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const videos = carousel.querySelectorAll(".carousel-video");
+
+        // Фіксований крок (490px + 20px gap)
+        const slideWidth = 490 + 20;
+
+        prevBtn.addEventListener("click", () => {
+          carousel.scrollBy({ left: -slideWidth, behavior: "smooth" });
+        });
+
+        nextBtn.addEventListener("click", () => {
+          carousel.scrollBy({ left: slideWidth, behavior: "smooth" });
+        });
+
+        // 🎬 Клік по відео = play/pause
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const wrappers = document.querySelectorAll(".video-wrapper");
+
+        wrappers.forEach((wrapper) => {
+          const video = wrapper.querySelector("video");
+
+          wrapper.addEventListener("click", () => {
+            if (video.paused) {
+              // пауза всіх інших
+              wrappers.forEach((w) => {
+                const v = w.querySelector("video");
+                if (v !== video) v.pause();
+              });
+              video.play();
+            } else {
+              video.pause();
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

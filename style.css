@@ -1384,6 +1384,23 @@
   flex: 0 0 auto;
 }
 
+.container .arrow-left {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px;
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(
+    100deg,
+    rgba(74, 209, 255, 0.4) 0%,
+    rgba(172, 60, 247, 0.4) 100%
+  );
+}
 .container .arrow-right {
   display: inline-flex;
   flex-direction: column;
@@ -1440,4 +1457,54 @@
   margin-bottom: -1.5px;
   margin-left: -1.5px;
   margin-right: -1.5px;
+}
+
+.video-carousel {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+
+  /* ключові стилі для скролу */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  margin-left: auto;
+  margin-right: auto;
+  /* обмежуємо ширину, щоб був скрол */
+  width: 100%;
+  max-width: 1600px; /* або скільки треба */
+  box-sizing: border-box;
+
+  -ms-overflow-style: none; /* для IE і Edge */
+  scrollbar-width: none; /* для Firefox */
+}
+
+/* стиль для стрілок (необов'язково — приклад) */
+.arrow-left,
+.arrow-right {
+  cursor: pointer;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-wrapper {
+  flex: 0 0 auto;
+  width: 490px;
+  height: 300px;
+  margin-right: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.carousel-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  pointer-events: none; /* важливо: клік ловить обгортка */
+}
+.video-carousel::-webkit-scrollbar {
+  display: none; /* для Chrome, Safari, Opera */
 }
