@@ -1493,7 +1493,7 @@
 .video-wrapper {
   flex: 0 0 auto;
   width: 490px;
-  height: 300px;
+  height: 290px;
   margin-right: 20px;
   cursor: pointer;
   position: relative;
@@ -1504,6 +1504,7 @@
   height: 100%;
   border-radius: 12px;
   pointer-events: none; /* важливо: клік ловить обгортка */
+  object-fit: cover;
 }
 .video-carousel::-webkit-scrollbar {
   display: none; /* для Chrome, Safari, Opera */
