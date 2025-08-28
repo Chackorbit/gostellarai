@@ -652,7 +652,8 @@
 
 .container .text-wrapper-8 {
   position: relative;
-  width: 302px;
+  max-width: 302px;
+  width: 100%;
   margin-top: -1px;
   font-family: var(
     --gostellarai-cyberpunk-launch-lovable-app-semantic-item-font-family
