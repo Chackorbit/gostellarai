@@ -283,7 +283,6 @@
   letter-spacing: var(--header-1-letter-spacing);
   line-height: var(--header-1-line-height);
   font-style: var(--header-1-font-style);
-  margin-bottom: 40px;
 }
 
 .container .div-7 {
@@ -463,8 +462,9 @@
 }
 
 .container .component-4 {
-  height: 457px;
-  padding: 33px 33px 89px;
+  max-height: 457px;
+  height: 100%;
+  padding: 33px;
   left: 912px;
   display: flex;
   flex-direction: column;
@@ -632,10 +632,11 @@
   max-width: 424px;
   min-width: 280px;
   width: 100%;
-  height: 457px;
+  max-height: 457px;
+  height: 100% !important;
   align-items: flex-start;
   gap: var(--gostellarai-cyberpunk-launch-lovable-app-font-size-24);
-  padding: 33px 33px 169px;
+  padding: 33px;
 
   top: -1px;
   background-color: #1a1a1fba;
