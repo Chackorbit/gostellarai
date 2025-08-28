@@ -65,9 +65,6 @@
 
   .container .image {
     max-width: 602px;
-    width: 100%;
-    max-height: 904px;
-    height: 100%;
   }
 
   .container .section {
@@ -75,13 +72,21 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    padding: 60px 60px;
+    padding: 20px;
     margin-bottom: 50px;
   }
 
   .container .component-7 {
     min-height: 345px;
     height: 345px !important;
+  }
+  .container .div-6 {
+    max-width: 500px;
+  }
+
+  .header {
+    font-size: 40px;
+    line-height: 40px;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -99,6 +104,21 @@
   .container .section-6 {
     padding: 20px;
     padding-top: 40px;
+  }
+
+  .container .div-3 {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .header {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .container .div-5 .text-wrapper,
+  .div-5 .faster-go-to-market {
+    font-size: 18px;
   }
 }
 @media screen and (max-width: 1050px) {

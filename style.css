@@ -82,6 +82,7 @@
   gap: var(--gostellarai-cyberpunk-launch-lovable-app-font-size-16);
   position: relative;
   align-self: stretch;
+  max-width: 644px;
   width: 100%;
   flex: 0 0 auto;
 }
@@ -166,8 +167,9 @@
 
 .container .image {
   position: relative;
-  width: 602px;
-  height: 904px;
+  max-width: 602px;
+  max-height: 650px;
+  height: 100%;
   aspect-ratio: 0.67;
 }
 
