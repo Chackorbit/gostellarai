@@ -197,6 +197,14 @@
 }
 
 @media screen and (max-width: 480px) {
+  .frame-2 .div-wrapper,
+  .frame-2 .component-2 {
+    display: none;
+  }
+  .frame-2 {
+    justify-content: center !important;
+    align-items: center;
+  }
   .container .div-16,
   .container .div-14 {
     padding: 0;
