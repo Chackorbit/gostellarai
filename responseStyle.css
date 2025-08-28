@@ -164,6 +164,7 @@
 
   .container .div-11 {
     flex-wrap: wrap;
+    margin-top: 0;
   }
 
   .container .ready-to-grow {

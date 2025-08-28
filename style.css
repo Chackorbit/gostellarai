@@ -707,6 +707,7 @@
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
+  margin-top: 40px;
 }
 
 .container .component-8 {
