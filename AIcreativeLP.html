@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #04041a;
+      }
+
+      .header {
+        background: #04041a;
+      }
+      /* Main header styling */
+      .container {
+        max-width: 100%;
+        background: #04041a;
+        border-bottom: 2px solid #191937;
+        padding: 0;
+        margin: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .header.container {
+        padding: 0;
+      }
+
+      .frame-2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.2rem;
+        height: 75px;
+        padding: 0 32px;
+      }
+
+      /* Branding section */
+      .div-wrapper .text-wrapper-2 {
+        font-family: "Inter", "Montserrat", Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.01em;
+        margin-left: 0;
+      }
+
+      /* Logo styling */
+      .logo .img {
+        height: 45px;
+        width: auto;
+        display: block;
+        margin: 0 32px;
+      }
+
+      /* CTA Button */
+      .component-2 .text {
+        background: linear-gradient(90deg, #38b6ff 0%, #b45cf0 100%);
+        color: #fff;
+        border-radius: 12px;
+        padding: 0.7em 2em;
+        font-weight: 600;
+        font-size: 1.15rem;
+        box-shadow: 0 2px 8px #2a2a7277;
+        cursor: pointer;
+        transition: background 0.2s;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .component-2 .text:hover {
+        background: linear-gradient(90deg, #b45cf0 0%, #38b6ff 100%);
+      }
+
+      /* Responsive (mobile) */
+      @media (max-width: 700px) {
+        .frame-2 {
+          flex-direction: column;
+          height: auto;
+          padding: 12px 10px;
+          gap: 0.7rem;
+        }
+
+        .div-wrapper .text-wrapper-2 {
+          font-size: 1.1rem;
+          margin-bottom: 5px;
+        }
+
+        .logo .img {
+          height: 33px;
+          margin: 0;
+        }
+
+        .component-2 .text {
+          font-size: 1rem;
+          padding: 0.6em 1.4em;
+          border-radius: 9px;
+          margin-top: 6px;
+        }
+      }
+
+      .hero {
+        position: relative;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          120deg,
+          #181818 0%,
+          #22223b 60%,
+          #009ffd 200%
+        );
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        overflow: hidden;
+        padding: 2rem 1rem;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 60vh;
+        max-height: 500px;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 1vw;
+        z-index: 1;
+        opacity: 0.6;
+      }
+
+      .bg-video,
+      .bg-banner,
+      .bg-landing {
+        flex: 1;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 0 15px rgba(0, 159, 253, 0.6);
+        animation: fadeIn 1.5s ease forwards;
+      }
+
+      .bg-video {
+        animation-delay: 0s;
+      }
+
+      .bg-banner {
+        background: url("./img/promoImg/1.png") center/cover no-repeat;
+        animation-delay: 0.5s;
+      }
+
+      .bg-landing {
+        background: url("./img/promoImg/landingPage.png") center/cover no-repeat;
+        animation-delay: 1s;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        text-align: center;
+        animation: slideInUp 1s ease forwards;
+      }
+
+      .headline {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+      }
+
+      .subhead {
+        font-size: 1.25rem;
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-group {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .cta-primary,
+      .cta-secondary {
+        padding: 0.9em 2.5em;
+        border-radius: 24px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .cta-primary {
+        background: linear-gradient(90deg, #38b6ff 0%, #b45cf0 100%);
+
+        color: #ffffff;
+      }
+
+      .cta-primary:hover {
+        background: linear-gradient(90deg, #b45cf0 0%, #38b6ff 100%);
+        color: #fff;
+      }
+
+      .cta-secondary {
+        background: transparent;
+        border: 2px solid #00f2fe;
+        color: #fff;
+      }
+
+      .cta-secondary:hover {
+        background: #00f2fe;
+        color: #181818;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Mobile adaptation */
+
+      @media (max-width: 700px) {
+        .hero-bg {
+          flex-direction: column;
+          height: auto;
+          max-height: none;
+          opacity: 0.15;
+        }
+        .bg-video,
+        .bg-banner,
+        .bg-landing {
+          width: 100%;
+          height: 150px;
+          margin-bottom: 1rem;
+        }
+        .headline {
+          font-size: 1.6rem;
+        }
+        .subhead {
+          font-size: 1rem;
+        }
+        .cta-group {
+          flex-direction: column;
+        }
+        .cta-primary,
+        .cta-secondary {
+          width: 100%;
+        }
+      }
+
+      .showcase {
+        background: linear-gradient(
+          120deg,
+          #181818 0%,
+          #22223b 60%,
+          #009ffd 200%
+        );
+        color: #fff;
+        padding: 4rem 1rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .showcase .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .showcase-headline {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        text-align: center;
+      }
+
+      .showcase-subhead {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        opacity: 0.8;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .tab-button {
+        background: transparent;
+        border: 2px solid #b45cf0;
+        color: #00f2fe;
+        padding: 0.7em 1.6em;
+        border-radius: 24px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .tab-button.active,
+      .tab-button:hover {
+        background: linear-gradient(90deg, #b45cf0 0%, #38b6ff 100%);
+        color: #22223b;
+      }
+
+      .tab-content {
+        display: none;
+        text-align: center;
+        padding-bottom: 20px;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .showcase-video {
+        width: auto;
+        max-height: 480px;
+        border-radius: 12px;
+        box-shadow: 0 0 25px #00f2fe99;
+        margin-bottom: 1rem;
+      }
+
+      .banner-carousel {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .banner-item {
+        max-width: 480px;
+        max-height: 600px;
+        height: 100%;
+        width: 100%;
+        background: #009ffd;
+        color: #222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        border-radius: 12px;
+        box-shadow: 0 0 15px #00f2fe88;
+        box-sizing: content-box;
+      }
+      .banner-item img {
+        max-width: 480px;
+        max-height: 600px;
+        height: 100%;
+        width: 100%;
+      }
+
+      .landing-preview {
+        height: 480px;
+      }
+
+      .landing-preview iframe {
+        width: 100%;
+        max-height: 600px;
+        height: 100%;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 0 25px #00f2fe99;
+        margin-bottom: 1rem;
+      }
+
+      .btn-order {
+        background: linear-gradient(90deg, #38b6ff 0%, #b45cf0 100%);
+        border: none;
+        padding: 0.85em 3.5em;
+        margin-top: 20px;
+        color: #222;
+        font-weight: 700;
+        border-radius: 32px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .btn-order:hover {
+        background: linear-gradient(90deg, #b45cf0 0%, #38b6ff 100%);
+      }
+
+      /* Mobile-first responsiveness */
+
+      @media (max-width: 768px) {
+        .tabs {
+          gap: 0.5rem;
+        }
+
+        .banner-carousel {
+          flex-direction: column;
+        }
+
+        .banner-item {
+          width: 100% !important;
+          /* height: 480px !important; */
+        }
+      }
+
+      .why-choose-us {
+        background: #04041a;
+        color: #fff;
+        padding: 4rem 1rem;
+        font-family: "Inter", sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        margin: 0 auto;
+      }
+
+      .section-headline {
+        font-weight: 700;
+        font-size: 2.6rem;
+        margin-bottom: 3rem;
+      }
+
+      .tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .tile {
+        background: #22223b;
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 0 25px #b45cf088;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .tile:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 35px #b45cf088;
+      }
+
+      .icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      /* Псевдо-іконки для прикладу — замініть на SVG або реальні іконки */
+
+      .speed-icon {
+        background-image: url("./img/promoImg/icon/speed.svg");
+      }
+
+      .cost-icon {
+        background-image: url("./img/promoImg/icon/cost.svg");
+      }
+
+      .conversion-icon {
+        background-image: url("./img/promoImg/icon/conversion.svg");
+      }
+
+      .scale-icon {
+        background-image: url("./img/promoImg/icon/scale.svg");
+      }
+
+      .compliance-icon {
+        background-image: url("./img/promoImg/icon/compliance.svg");
+      }
+
+      .hybrid-icon {
+        background-image: url("./img/promoImg/icon/hybrid.svg");
+      }
+
+      .tile h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .tile p {
+        font-size: 1rem;
+        color: #a2a2a2;
+      }
+
+      /* Мобільна адаптивність */
+
+      @media (max-width: 768px) {
+        .section-headline {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+        .tiles {
+          grid-template-columns: 1fr;
+        }
+        .tile {
+          padding: 1.5rem 1rem;
+        }
+      }
+
+      .who-we-serve {
+        background: #04041a;
+        color: #fff;
+        padding: 4rem 1rem;
+        font-family: "Inter", sans-serif;
+      }
+
+      .container {
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .section-headline {
+        font-weight: 700;
+        font-size: 2.4rem;
+        margin-bottom: 3rem;
+      }
+
+      .vertical-tiles {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+      }
+
+      .tile {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        background: #22223b;
+        padding: 1rem 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 0 20px #00f2fe88;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        cursor: default;
+      }
+
+      .tile:hover {
+        box-shadow: 0 0 35px #00f2fecc;
+        transform: translateY(-6px);
+      }
+
+      .icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      /* Іконки-плейсхолдери (замінити SVG) */
+      .igaming-icon {
+        background-image: url("icons/igaming.svg");
+      }
+      .ecommerce-icon {
+        background-image: url("icons/ecommerce.svg");
+      }
+      .travel-icon {
+        background-image: url("icons/travel.svg");
+      }
+      .fintech-icon {
+        background-image: url("icons/fintech.svg");
+      }
+      .events-icon {
+        background-image: url("icons/events.svg");
+      }
+
+      .text h3 {
+        font-size: 1.3rem;
+        margin: 0;
+      }
+
+      .text p {
+        font-size: 1rem;
+        color: #a2a2a2;
+        margin: 0.2rem 0 0;
+      }
+
+      /* Мобільна адаптивність */
+
+      @media (max-width: 600px) {
+        .section-headline {
+          font-size: 1.8rem;
+          margin-bottom: 2rem;
+        }
+
+        .vertical-tiles {
+          gap: 1rem;
+        }
+
+        .tile {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .icon {
+          width: 36px;
+          height: 36px;
+        }
+
+        .text h3 {
+          font-size: 1.1rem;
+        }
+
+        .text p {
+          font-size: 0.9rem;
+          color: #b0b0b0;
+        }
+      }
+
+      .call-to-action {
+        background: #22223b;
+        position: relative;
+        padding: 4rem 1rem 5rem;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        text-align: center;
+        border-radius: 20px;
+        max-width: 900px;
+        margin: 3rem auto;
+        margin-bottom: 0;
+        box-shadow: 0 0 40px #00f2feaa;
+        overflow: visible;
+      }
+
+      .call-to-action .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-headline {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .cta-subhead {
+        font-size: 1.25rem;
+        margin-bottom: 1em;
+        opacity: 0.9;
+      }
+
+      .limited-offer {
+        font-weight: 700;
+        color: #00f2fe;
+      }
+
+      .cta-body {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        color: #a2a2a2;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 1em 3em;
+        border-radius: 30px;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, #38b6ff 0%, #b45cf0 100%);
+        color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(90deg, #b45cf0 0%, #38b6ff 100%);
+
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid #00f2fe;
+        color: #00f2fe;
+      }
+
+      .btn-secondary:hover {
+        background: #00f2fe;
+        color: #22223b;
+      }
+
+      .countdown-graphic {
+        position: absolute;
+        top: -12px;
+        right: 12px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #00f2fe, 0 0 40px #00f2fe;
+        animation: pulse 2.5s infinite alternate;
+        opacity: 0.8;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.15);
+        }
+      }
+
+      /* Мобільна адаптивність */
+
+      @media (max-width: 600px) {
+        .cta-headline {
+          font-size: 1.8rem;
+        }
+        .cta-subhead {
+          font-size: 1rem;
+        }
+        .cta-buttons {
+          flex-direction: column;
+        }
+        .btn-primary,
+        .btn-secondary {
+          width: 100%;
+        }
+        .countdown-graphic {
+          width: 60px;
+          height: 60px;
+          top: -8px;
+          right: -8px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container header">
+      <div class="frame-2">
+        <div class="div-wrapper">
+          <div class="text-wrapper-2">GoStellarAI</div>
+        </div>
+        <div class="logo"><img class="img" src="img/logo.png" /></div>
+        <div class="component-2">
+          <a
+            href="mailto:info@gostellarai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="text">Get Started</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-bg">
+        <video
+          class="bg-video"
+          src="./LP_final2.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+        <div class="bg-banner"></div>
+        <div class="bg-landing"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="headline">AI-Powered Creative That Converts</h1>
+        <p class="subhead">
+          Video Ads · Landing Pages · Banners — Built for Performance-Driven
+          Brands
+        </p>
+        <div class="cta-group">
+          <button class="cta-primary">See Samples</button>
+          <button class="cta-secondary">Get Started</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="container">
+        <h2 class="showcase-headline">Our Work in Action</h2>
+        <p class="showcase-subhead">
+          We deliver full-funnel creative: video ads, banners, and landing pages
+          — designed to scale, optimized to perform.
+        </p>
+
+        <div class="tabs">
+          <button class="tab-button active" data-tab="video">
+            Video Ads 🎥
+          </button>
+          <button class="tab-button" data-tab="banners">Banners 🖼</button>
+          <button class="tab-button" data-tab="landing">
+            Landing Pages 🌐
+          </button>
+        </div>
+
+        <div class="tab-content active" id="video">
+          <video autoplay muted loop playsinline class="showcase-video">
+            <source
+              src="./LD-ALL-ALL-NoLocation-ActAIMoo1-ALL-HookLabourDay-MoosePilot-Vid-1to1.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          <p>Promotional & UGC-style examples</p>
+          <button class="btn-order">Order</button>
+        </div>
+
+        <div class="tab-content" id="banners">
+          <div class="banner-carousel">
+            <div class="banner-item">
+              <img src="./img/promoImg/1.png" alt="banner1" />
+            </div>
+            <div class="banner-item">
+              <img src="./img/promoImg/2.png" alt="banner2" />
+            </div>
+            <div class="banner-item">
+              <img src="./img/promoImg/3.png" alt="banner3" />
+            </div>
+            <div class="banner-item">
+              <img src="./img/promoImg/4.png" alt="banner4" />
+            </div>
+            <div class="banner-item">
+              <img src="./img/promoImg/5.png" alt="banner5" />
+            </div>
+            <div class="banner-item">
+              <img src="./img/promoImg/6.png" alt="banner6" />
+            </div>
+            <div class="banner-item">
+              <img src="./img/promoImg/7.png" alt="banner7" />
+            </div>
+          </div>
+          <button class="btn-order">Order</button>
+        </div>
+
+        <div class="tab-content" id="landing">
+          <div class="landing-preview">
+            <iframe
+              src="https://chackorbit.github.io/lucky-days/"
+              title="Landing Page Preview"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <button class="btn-order">Order</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-choose-us">
+      <div class="container">
+        <h2 class="section-headline">
+          Why Our Clients Trust AI-Powered Creative
+        </h2>
+        <div class="tiles">
+          <div class="tile">
+            <div class="icon speed-icon" aria-label="Speed to Market"></div>
+            <h3>Speed to Market</h3>
+            <p>From idea to live assets in 72h</p>
+          </div>
+          <div class="tile">
+            <div
+              class="icon cost-icon"
+              aria-label="Lower production costs"
+            ></div>
+            <h3>Lower production costs</h3>
+            <p>Efficient AI automation reduces expenses</p>
+          </div>
+          <div class="tile">
+            <div
+              class="icon conversion-icon"
+              aria-label="Conversion Optimized"
+            ></div>
+            <h3>Conversion Optimized</h3>
+            <p>Landing pages + ads designed for clicks & signups</p>
+          </div>
+          <div class="tile">
+            <div class="icon scale-icon" aria-label="Creative at Scale"></div>
+            <h3>Creative at Scale</h3>
+            <p>10–20 ad variations per campaign</p>
+          </div>
+          <div class="tile">
+            <div
+              class="icon compliance-icon"
+              aria-label="Compliance Ready"
+            ></div>
+            <h3>Compliance Ready</h3>
+            <p>Proven in regulated industries like gaming</p>
+          </div>
+          <div class="tile">
+            <div class="icon hybrid-icon" aria-label="Human + AI Hybrid"></div>
+            <h3>Human + AI Hybrid</h3>
+            <p>AI speed with creative direction & brand consistency</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="who-we-serve">
+      <div class="container">
+        <h2 class="section-headline">
+          Perfect for Any Promo-Driven Industry From Highly Regulated Gaming to
+          High-Growth Brands
+        </h2>
+        <div class="vertical-tiles">
+          <div class="tile">
+            <div
+              class="icon igaming-icon"
+              aria-label="iGaming & Sports Betting"
+            ></div>
+            <div class="text">
+              <h3>iGaming & Sports Betting</h3>
+              <p>Fast promos, seasonal offers, bonus campaigns</p>
+            </div>
+          </div>
+          <div class="tile">
+            <div
+              class="icon ecommerce-icon"
+              aria-label="E-commerce & D2C Brands"
+            ></div>
+            <div class="text">
+              <h3>E-commerce & D2C Brands</h3>
+              <p>UGC ads, seasonal promos, product launches</p>
+            </div>
+          </div>
+          <div class="tile">
+            <div
+              class="icon travel-icon"
+              aria-label="Travel & Hospitality"
+            ></div>
+            <div class="text">
+              <h3>Travel & Hospitality</h3>
+              <p>Resort offers, seasonal campaigns, events</p>
+            </div>
+          </div>
+          <div class="tile">
+            <div class="icon fintech-icon" aria-label="Fintech & Apps"></div>
+            <div class="text">
+              <h3>Fintech & Apps</h3>
+              <p>Explainer videos, user acquisition landing pages</p>
+            </div>
+          </div>
+          <div class="tile">
+            <div
+              class="icon events-icon"
+              aria-label="Events & Entertainment"
+            ></div>
+            <div class="text">
+              <h3>Events & Entertainment</h3>
+              <p>Concerts, festivals, movie promos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="call-to-action">
+      <div class="container">
+        <h2 class="cta-headline">
+          🚀 See What Your Brand Could Look Like in AI Creative
+        </h2>
+        <p class="cta-subhead">
+          ⚡ Book today and unlock a free first video — or get a free banner
+          pack with your first order of video ads.<br /><span
+            class="limited-offer"
+            >Limited-time offer for new clients only.</span
+          >
+        </p>
+        <p class="cta-body">
+          We believe the best proof is results. That’s why we’re offering to
+          create your first asset for free. No strings attached — just
+          high-performing creative to show what’s possible.
+        </p>
+        <div class="cta-buttons">
+          <button class="btn-primary">Claim Your Free Video</button>
+          <button class="btn-secondary">Get My Free Banner Pack</button>
+        </div>
+      </div>
+      <div class="countdown-graphic" aria-hidden="true"></div>
+    </section>
+
+    <script>
+      const tabs = document.querySelectorAll(".tab-button");
+      const contents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          contents.forEach((c) => c.classList.remove("active"));
+          tab.classList.add("active");
+          document.getElementById(tab.dataset.tab).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
