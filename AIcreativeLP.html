@@ -152,7 +152,9 @@
       }
 
       .bg-video {
-        animation-delay: 0s;
+        max-width: 400px;
+        width: auto;
+        animation-delay: 1s;
       }
 
       .bg-banner {
@@ -162,7 +164,7 @@
 
       .bg-landing {
         background: url("./img/promoImg/landingPage.png") center/cover no-repeat;
-        animation-delay: 1s;
+        animation-delay: 0s;
       }
 
       .hero-content {
@@ -250,14 +252,16 @@
           flex-direction: column;
           height: auto;
           max-height: none;
-          opacity: 0.15;
+          opacity: 0.6;
         }
         .bg-video,
         .bg-banner,
         .bg-landing {
+          max-width: none;
           width: 100%;
           height: 150px;
           margin-bottom: 1rem;
+          flex: none;
         }
         .headline {
           font-size: 1.6rem;
@@ -282,7 +286,7 @@
           #009ffd 200%
         );
         color: #fff;
-        padding: 4rem 1rem;
+        padding: 0;
         font-family: "Inter", sans-serif;
       }
 
@@ -352,30 +356,46 @@
 
       .banner-carousel {
         display: flex;
-        gap: 1rem;
+        gap: 24px;
         overflow-x: auto;
-        justify-content: center;
-        margin-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        padding-bottom: 8px;
+        scroll-behavior: smooth; /* Плавний скрол */
+        cursor: grab; /* Вказівник, що можна перетягувати */
       }
 
-      .banner-item {
-        max-width: 480px;
-        max-height: 600px;
-        height: 100%;
-        width: 100%;
-        background: #009ffd;
-        color: #222;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 700;
-        border-radius: 12px;
-        box-shadow: 0 0 15px #00f2fe88;
-        box-sizing: content-box;
+      /* У мобільних і ПК при натисканні та триманні — змінюємо курсор, щоб було зрозуміло, що перетягуємо */
+      @media (hover: hover) {
+        .banner-carousel {
+          cursor: grab;
+        }
       }
+
+      .banner-carousel::-webkit-scrollbar {
+        height: 7px;
+        background: #181818;
+      }
+      .banner-carousel::-webkit-scrollbar-thumb {
+        background: #39365e;
+        border-radius: 7px;
+      }
+
+      /* Банери мають бути гнучкої ширини, але не зменшуватися занадто */
+      .banner-item {
+        min-width: 280px;
+        max-width: 350px;
+        flex: 0 0 auto;
+        background: #22223b;
+        border-radius: 12px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       .banner-item img {
-        max-width: 480px;
-        max-height: 600px;
         height: 100%;
         width: 100%;
       }
@@ -413,12 +433,11 @@
       /* Mobile-first responsiveness */
 
       @media (max-width: 768px) {
+        .showcase-video {
+          width: 100%;
+        }
         .tabs {
           gap: 0.5rem;
-        }
-
-        .banner-carousel {
-          flex-direction: column;
         }
 
         .banner-item {
@@ -768,7 +787,7 @@
           width: 60px;
           height: 60px;
           top: -8px;
-          right: -8px;
+          right: 8px;
         }
       }
     </style>
@@ -795,6 +814,8 @@
 
     <section class="hero">
       <div class="hero-bg">
+        <div class="bg-landing"></div>
+        <div class="bg-banner"></div>
         <video
           class="bg-video"
           src="./LP_final2.mp4"
@@ -803,8 +824,6 @@
           loop
           playsinline
         ></video>
-        <div class="bg-banner"></div>
-        <div class="bg-landing"></div>
       </div>
 
       <div class="hero-content">
@@ -1034,6 +1053,19 @@
           document.getElementById(tab.dataset.tab).classList.add("active");
         });
       });
+    </script>
+
+    <script>
+      const bannerCarousel = document.querySelector(".banner-carousel");
+
+      bannerCarousel.addEventListener(
+        "wheel",
+        (evt) => {
+          evt.preventDefault();
+          bannerCarousel.scrollLeft += evt.deltaY;
+        },
+        { passive: false }
+      );
     </script>
   </body>
 </html>
