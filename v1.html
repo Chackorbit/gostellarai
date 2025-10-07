@@ -15,6 +15,7 @@
         --glass: rgba(255, 255, 255, 0.06);
         --radius: 20px;
         --maxw: 1100px;
+        --card-border: rgba(255, 255, 255, 0.08);
       }
       * {
         box-sizing: border-box;
@@ -54,7 +55,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        padding: 12px 15;
+        padding: 12px 15px;
       }
       .brand {
         display: flex;
@@ -63,7 +64,7 @@
         font-size: 14px;
       }
       .brand img {
-        height: 28px;
+        height: 80px;
       }
       .btn-cta {
         background: linear-gradient(
@@ -211,16 +212,23 @@
         }
       }
       .media-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         background: rgba(0, 0, 0, 0.45);
         border-radius: 14px;
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.06);
       }
-      .media-card img,
+      .media-card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
       .media-card video {
         display: block;
         width: 100%;
-        height: 180px;
+        height: 350px;
         object-fit: cover;
       }
       .media-card .label {
@@ -309,6 +317,20 @@
         cursor: pointer;
       }
 
+      /* Verticals */
+      .use-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .panel {
+        padding: 18px;
+        border-radius: 14px;
+        border: 1px solid var(--card-border);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
       footer {
         border-top: 1px solid rgba(255, 255, 255, 0.06);
         padding: 20px 0;
@@ -325,13 +347,28 @@
       .muted {
         color: var(--muted);
       }
+
+      footer .container {
+        padding: 0;
+      }
+      .footerLogo {
+        height: 120px;
+      }
+      .formBtn {
+        background: linear-gradient(
+          90deg,
+          var(--accent-1),
+          var(--accent-2),
+          var(--accent-3)
+        );
+      }
     </style>
   </head>
   <body>
     <header>
       <div class="container nav">
         <div class="brand">
-          <img src="./img/logo.png" alt="logo" />
+          <img class="logo" src="./img/logo.png" alt="logo" />
           <div style="font-weight: 600">GoStellarAI Creative</div>
         </div>
         <a class="btn-cta" href="#cta">Get Free Creative Mini‑Pack</a>
@@ -343,7 +380,8 @@
         <div class="container">
           <div class="glow" aria-hidden></div>
           <h1>
-            <span class="grad">AI‑Powered Creatives</span> for Every Format
+            <span class="grad">AI‑Powered Creatives</span> for Every Format that
+            sell, scale, and stay on‑brand
           </h1>
           <p class="lead">
             Multi‑format packs in days—not weeks. Direct, bold, and built to
@@ -362,14 +400,14 @@
         <div class="grid cols-4" style="margin-top: 12px">
           <div class="card">
             <h3>Videos</h3>
-            <p>UGC, creative, and YouTube ads that drive conversions.</p>
+            <p>From AI-UGC to scroll-stopping YouTube ads.</p>
             <a href="#videoSamples">Get Free Sample →</a>
           </div>
           <div class="card">
             <h3>Banners</h3>
             <p>
-              Static and carousel banners in all key formats, optimized for
-              engagement.
+              Static or dynamic — bold, on-brand banners built for speed,
+              variety, and engagement
             </p>
             <a href="#bannerSamples">Get Free Sample →</a>
           </div>
@@ -399,7 +437,7 @@
         <div class="grid samples-grid" style="margin-top: 10px">
           <div class="media-card">
             <video
-              src="https://github.com/Chackorbit/gostellarai/blob/main/LP_final2.mp4?raw=true"
+              src="./50+_1_1_EN_(CN sub).mp4"
               muted
               loop
               playsinline
@@ -448,17 +486,17 @@
         <h3 style="margin-top: 18px" id="landingSamples">
           Landing Page Samples
         </h3>
-        <div class="grid samples-grid" style="margin-top: 10px">
+        <div class="grid samples-grid landing" style="margin-top: 10px">
           <div class="media-card">
             <img src="./img/promoImg/landingPage.png" alt="lp" />
             <div class="label">Landing Page Variant A</div>
           </div>
           <div class="media-card">
-            <img src="/media/sample-landing2.jpg" alt="lp" />
+            <img src="./img/promoImg/ldLanding.png" alt="lp" />
             <div class="label">Landing Page Variant B</div>
           </div>
           <div class="media-card">
-            <img src="/media/sample-landing3.jpg" alt="lp" />
+            <img src="./img/promoImg/frame.jpg" alt="lp" />
             <div class="label">Landing Page Variant C</div>
           </div>
         </div>
@@ -482,9 +520,9 @@
               Kickstart your creative engine fast.
             </p>
             <ul>
-              <li>1 UGC or creative video</li>
-              <li>3 static banners (3 formats each)</li>
-              <li>Delivery in under 5 days</li>
+              <li>1 creative video or UGC (3 formats)</li>
+              <li>3 banners (3 formats each)</li>
+              <li>1 Landing Page, Delivery</li>
             </ul>
             <a href="#cta">Get Free Mini‑Pack</a>
           </div>
@@ -501,12 +539,12 @@
               <div class="price">$3,900</div>
             </div>
             <p class="muted" style="margin-top: 6px">
-              Angle‑First Creative with mapped hooks.
+              Creative with mapped hooks.
             </p>
             <ul>
-              <li>3 videos (UGC or creative)</li>
-              <li>12 static banners or carousels</li>
-              <li>LP hero + CTA sections</li>
+              <li>3 videos (in 3 sizes)</li>
+              <li>10 banners static or dynamic (in 3 sizes each)</li>
+              <li>2 Landing Pages for A/B testing</li>
             </ul>
             <a href="#cta">Get Free Mini‑Pack</a>
           </div>
@@ -526,9 +564,12 @@
               Based on your goals and market needs.
             </p>
             <ul>
+              <li>
+                Social conversations → define pains → get CTA hooks Variants per
+                angle for disciplined testing
+              </li>
               <li>Custom creative sprint plan</li>
-              <li>Localization and compliance</li>
-              <li>Dedicated creative lead</li>
+              <li>Localization</li>
             </ul>
             <a href="#cta">Get Free Mini‑Pack</a>
           </div>
@@ -537,28 +578,102 @@
 
       <section id="cta" class="container">
         <div class="cta-card">
-          <h3 style="text-align: center; margin: 0 0 10px 0">
+          <p
+            class="muted"
+            style="
+              text-align: center;
+              max-width: 720px;
+              margin: 0 auto 0px;
+              font-weight: 700;
+              font-size: 18px;
+            "
+          >
+            Special Offer*
+          </p>
+          <p
+            class="muted"
+            style="text-align: center; max-width: 720px; margin: 0 auto 16px"
+          >
+            Exclusive one-time use — don’t miss it!
+          </p>
+          <h3 style="text-align: center; margin: 0">
             Get a Free Creative Mini‑Pack
           </h3>
           <p
             class="muted"
             style="text-align: center; max-width: 720px; margin: 0 auto 16px"
           >
-            Receive 1 video and 3 banners, free of charge — yours to keep.
+            1 sample video and 1 banners, free of charge — yours to keep.
           </p>
           <form
             onsubmit="event.preventDefault();alert('Дякуємо! Ми звʼяжемося з вами.')"
           >
             <input type="email" placeholder="you@brand.com" required />
             <select style="margin-top: 10px">
-              <option>All listed</option>
-              <option>UGC & Short Video</option>
+              <option>All listed - at the very bottom</option>
+              <option>UGC style video</option>
+              <option>Short video</option>
               <option>Banner Pack</option>
               <option>Landing Page Variants</option>
               <option>AI Mascot Creation</option>
             </select>
-            <button style="margin-top: 12px">Send Request</button>
+            <button class="formBtn" style="margin-top: 12px">
+              Send Request
+            </button>
           </form>
+        </div>
+      </section>
+
+      <!-- Verticals -->
+      <section>
+        <div class="wrap container">
+          <h2>Use Cases & Verticals</h2>
+          <div class="use-grid" style="margin-top: 12px">
+            <div class="panel">
+              <div style="font-weight: 700">E‑commerce</div>
+              <div class="small" style="margin-top: 6px">
+                Product explainers, bundle ads, PDP videos, and UGC promos that
+                sell.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Apps & SaaS</div>
+              <div class="small" style="margin-top: 6px">
+                Feature teasers, onboarding clips, and quick “how-it-works”
+                demos.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Health & Wellness</div>
+              <div class="small" style="margin-top: 6px">
+                Before/after reels, claims-safe stories, and confident brand
+                explainers.
+              </div>
+            </div>
+          </div>
+          <div class="use-grid" style="margin-top: 12px">
+            <div class="panel">
+              <div style="font-weight: 700">Travel & Hospitality</div>
+              <div class="small" style="margin-top: 6px">
+                Destination reels, offer banners, trip teasers, and experience
+                showcases.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Gaming & Entertainment</div>
+              <div class="small" style="margin-top: 6px">
+                Hype trailers, creator collabs, and anti-fatigue creative
+                rotations.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Education</div>
+              <div class="small" style="margin-top: 6px">
+                Course teasers, instructor UGC, and launch campaigns for
+                cohorts.
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -577,6 +692,11 @@
         <div style="font-size: 13px; color: rgba(255, 255, 255, 0.55)">
           © 2025 GoStellarAI. All rights reserved.
         </div>
+
+        <div>
+          <img class="footerLogo logo" src="./img/logo.png" alt="logo" />
+        </div>
+
         <div class="footer-links" style="font-size: 13px">
           <a href="https://www.gostellarai.com" target="_blank" rel="noreferrer"
             >Website</a
