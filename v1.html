@@ -362,6 +362,23 @@
           var(--accent-3)
         );
       }
+
+      .special-offer span {
+        background: linear-gradient(
+          90deg,
+          var(--accent-1),
+          var(--accent-2),
+          var(--accent-3)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .co-text {
+        color: var(--accent-2);
+      }
     </style>
   </head>
   <body>
@@ -380,11 +397,11 @@
         <div class="container">
           <div class="glow" aria-hidden></div>
           <h1>
-            <span class="grad">AI‑Powered Creatives</span> for Every Format that
-            sell, scale, and stay on‑brand
+            <span class="grad">AI‑Powered Creatives</span> that sell, scale, and
+            stay on‑brand
           </h1>
           <p class="lead">
-            Multi‑format packs in days—not weeks. Direct, bold, and built to
+            Multi‑format packs in days — not weeks. Direct, bold, and built to
             sell.
           </p>
           <div class="center-cta">
@@ -414,7 +431,7 @@
           <div class="card">
             <h3>Landing Pages</h3>
             <p>
-              AI‑driven LP blocks — hero, proof, CTA — ready for A/B or
+              AI‑driven LP blocks — hero, proof, CTA — ready for A/B and
               localization.
             </p>
             <a href="#bannerSamples">Get Free Sample →</a>
@@ -525,7 +542,6 @@
             <ul>
               <li>1 creative video or UGC (3 formats)</li>
               <li>3 banners (3 formats each)</li>
-              <li>1 Landing Page, Delivery</li>
             </ul>
             <a href="#cta">Get Free Mini‑Pack</a>
           </div>
@@ -541,9 +557,11 @@
               <h4>Growth Pack</h4>
               <div class="price">$3,900</div>
             </div>
+            <!--  
             <p class="muted" style="margin-top: 6px">
               Creative with mapped hooks.
             </p>
+            -->
             <ul>
               <li>3 videos (in 3 sizes)</li>
               <li>10 banners static or dynamic (in 3 sizes each)</li>
@@ -567,11 +585,9 @@
               Based on your goals and market needs.
             </p>
             <ul>
-              <li>
-                Social conversations → define pains → get CTA hooks Variants per
-                angle for disciplined testing
-              </li>
-              <li>Custom creative sprint plan</li>
+              <li>Social conversations → define pains → get CTA hooks</li>
+              <li>Variants per angle for disciplined testing</li>
+              <li>Custom creative sprint package</li>
               <li>Localization</li>
             </ul>
             <a href="#cta">Get Free Mini‑Pack</a>
@@ -582,7 +598,7 @@
       <section id="cta" class="container">
         <div class="cta-card">
           <p
-            class="muted"
+            class="muted special-offer"
             style="
               text-align: center;
               max-width: 720px;
@@ -591,10 +607,10 @@
               font-size: 18px;
             "
           >
-            Special Offer*
+            <span>Special Offer* </span>
           </p>
           <p
-            class="muted"
+            class="muted co-text"
             style="text-align: center; max-width: 720px; margin: 0 auto 16px"
           >
             Exclusive one-time use — don’t miss it!
@@ -613,12 +629,12 @@
           >
             <input type="email" placeholder="you@brand.com" required />
             <select style="margin-top: 10px">
-              <option>All listed - at the very bottom</option>
               <option>UGC style video</option>
               <option>Short video</option>
               <option>Banner Pack</option>
               <option>Landing Page Variants</option>
               <option>AI Mascot Creation</option>
+              <option>All listed</option>
             </select>
             <button class="formBtn" style="margin-top: 12px">
               Send Request
