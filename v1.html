@@ -63,6 +63,16 @@
         gap: 10px;
         font-size: 14px;
       }
+
+      .logo-link {
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s ease;
+      }
+
+      .logo-link:hover {
+        color: var(--accent-2);
+      }
       .brand img {
         height: 80px;
       }
@@ -401,10 +411,15 @@
   <body>
     <header>
       <div class="container nav">
-        <div class="brand">
+        <a
+          class="brand logo-link"
+          href="https://www.gostellarai.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img class="logo" src="./img/logo.png" alt="logo" />
           <div style="font-weight: 600">GoStellarAI Creative</div>
-        </div>
+        </a>
         <a class="btn-cta" href="#cta">Get Free Creative Mini‑Pack</a>
       </div>
     </header>
@@ -645,17 +660,7 @@
             onsubmit="event.preventDefault();alert('Дякуємо! Ми звʼяжемося з вами.')"
           >
             <input type="email" placeholder="you@brand.com" required />
-            <select style="margin-top: 10px">
-              <!--
-                <option>UGC style video</option>
-              -->
 
-              <option>Short video</option>
-              <option>Banner Pack</option>
-              <option>Landing Page Variants</option>
-              <option>AI Mascot Creation</option>
-              <option>All listed</option>
-            </select>
             <button class="formBtn" style="margin-top: 12px">
               Send Request
             </button>
@@ -748,9 +753,14 @@
           © 2025 GoStellarAI. All rights reserved.
         </div>
 
-        <div>
+        <a
+          class="logo-link"
+          href="https://www.gostellarai.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img class="footerLogo logo" src="./img/logo.png" alt="logo" />
-        </div>
+        </a>
 
         <div class="footer-links" style="font-size: 13px">
           <a href="https://www.gostellarai.com" target="_blank" rel="noreferrer"
