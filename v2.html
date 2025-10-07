@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>GoStellarAI — Creative Services (Plain HTML/CSS)</title>
+    <meta
+      name="description"
+      content="AI‑powered creatives: videos, dynamic banners, landing variants — plain HTML & CSS mockup"
+    />
+    <style>
+      :root {
+        --bg: #0b0f1a;
+        --muted: #ffffffb3;
+        --panel: #0f1720;
+        --accent1: #d946ef;
+        --accent2: #38bdf8;
+        --accent3: #fb923c;
+        --radius: 18px;
+        --glass: rgba(255, 255, 255, 0.04);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --container: 1200px;
+        --max-width: 1200px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Roboto, "Helvetica Neue", Arial;
+        background: linear-gradient(90deg, var(--bg), #000000);
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .wrap {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Top bar */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 80;
+        backdrop-filter: blur(6px);
+        background: rgba(11, 15, 26, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand img {
+        height: 28px;
+      }
+      .cta-btn {
+        background: linear-gradient(
+          90deg,
+          var(--accent1),
+          var(--accent2),
+          var(--accent3)
+        );
+        color: #000;
+        padding: 10px 14px;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* Hero */
+      .hero {
+        padding: 56px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        filter: blur(60px);
+        background: radial-gradient(
+            400px 220px at 10% 10%,
+            rgba(217, 70, 239, 0.18),
+            transparent 30%
+          ),
+          radial-gradient(
+            320px 180px at 80% 20%,
+            rgba(56, 189, 248, 0.14),
+            transparent 30%
+          ),
+          radial-gradient(
+            300px 160px at 50% 85%,
+            rgba(251, 146, 60, 0.1),
+            transparent 30%
+          );
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: center;
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 36px;
+        line-height: 1.05;
+        margin: 0;
+      }
+      .accent-text {
+        background: linear-gradient(
+          90deg,
+          var(--accent1),
+          var(--accent2),
+          var(--accent3)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero p {
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 12px;
+        font-size: 17px;
+      }
+      .hero-actions {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn-outline {
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .btn-solid {
+        padding: 12px 16px;
+        border-radius: 12px;
+        background: #fff;
+        color: #000;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 26px;
+      }
+      .stat {
+        background: var(--glass);
+        border: 1px solid var(--card-border);
+        padding: 12px;
+        border-radius: 12px;
+        text-align: center;
+      }
+      .stat .v {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .stat .k {
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 6px;
+      }
+
+      /* Video card */
+      .video-card {
+        border-radius: 22px;
+        border: 1px solid var(--card-border);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        padding: 12px;
+      }
+      .video-wrap {
+        border-radius: 14px;
+        overflow: hidden;
+        background: #000;
+        height: 100%;
+        aspect-ratio: 16/9;
+      }
+      .video-wrap video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Sections */
+      section {
+        padding: 48px 0;
+      }
+      h2 {
+        margin: 0 0 8px 0;
+        font-size: 22px;
+      }
+      p.lead {
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      /* Gallery grid */
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+      .grid.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .card {
+        border-radius: 14px;
+        border: 1px solid var(--card-border);
+        background: var(--glass);
+        overflow: hidden;
+      }
+      .card .media {
+        height: 0;
+        padding-bottom: 66.66%;
+        background: #0b0f14;
+        display: block;
+      }
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .card .meta {
+        padding: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .muted {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+      }
+
+      /* Process, CTA, Forms */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .panel {
+        padding: 18px;
+        border-radius: 14px;
+        border: 1px solid var(--card-border);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .cta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      input,
+      select {
+        background: rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 12px;
+        border-radius: 12px;
+        color: #fff;
+      }
+      button[type="submit"] {
+        background: #fff;
+        color: #000;
+        border-radius: 12px;
+        padding: 12px 14px;
+        border: 0;
+        font-weight: 700;
+      }
+      .small {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .small.link {
+        font-size: 16px;
+        color: var(--accent2);
+      }
+
+      /* Verticals */
+      .use-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 24px 0;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Responsive */
+      @media (max-width: 880px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .grid.cols-3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+        .cta-grid {
+          grid-template-columns: 1fr;
+        }
+        .use-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stats {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 520px) {
+        .grid.cols-3 {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        .use-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap topbar-inner">
+        <div class="brand">
+          <img src="./img/logo.png" alt="GoStellarAI logo" />
+          <div style="font-weight: 600">GoStellarAI</div>
+        </div>
+        <a class="cta-btn" href="#cta">Get Free Creative Mini‑Pack</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- Hero -->
+      <header class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <h1>
+              AI‑Powered Creatives that
+              <span class="accent-text">sell, scale, and stay on‑brand</span>
+            </h1>
+            <p>
+              Multi‑format packs in days—not weeks. Direct, bold, built to
+              convert.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-outline" href="#gallery">See Samples</a>
+              <a class="btn-solid" href="#cta">Free Mini‑Pack</a>
+            </div>
+
+            <div class="stats" aria-hidden="true">
+              <div class="stat">
+                <div class="v">↓ 23%</div>
+                <div class="k">Avg. CPA</div>
+              </div>
+              <div class="stat">
+                <div class="v">3–5×</div>
+                <div class="k">Creative Speed</div>
+              </div>
+              <div class="stat">
+                <div class="v">&lt; 72h</div>
+                <div class="k">Time‑to‑Test</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card" aria-hidden="true">
+            <div class="video-wrap">
+              <video autoplay loop muted playsinline>
+                <source
+                  src="https://github.com/Chackorbit/lucky-days/blob/main/LP_final2.mp4?raw=true"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Gallery -->
+      <section id="gallery">
+        <div class="wrap">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              margin-bottom: 14px;
+            "
+          >
+            <div>
+              <h2>Creative Variety That Converts</h2>
+              <p class="lead">
+                Videos, Dynamic Banners, and Landing Page variants — all
+                on‑brand, test‑ready, and fast.
+              </p>
+            </div>
+            <a class="small link" href="#cta">Get a free mini‑pack →</a>
+          </div>
+
+          <h3 style="margin-top: 6px">Video Samples</h3>
+          <div class="grid cols-3" style="margin-top: 12px">
+            <article class="card">
+              <div class="media">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  style="width: 100%; height: 100%; object-fit: cover"
+                >
+                  <source src="/media/sample-ugc.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="meta">
+                <div>UGC Short Video</div>
+                <div class="muted">9:16 · 1:1 · 16:9</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="media">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  style="width: 100%; height: 100%; object-fit: cover"
+                >
+                  <source src="/media/sample-reel.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="meta">
+                <div>Creative Reel 15s</div>
+                <div class="muted">9:16 · 1:1 · 16:9</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="media">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  style="width: 100%; height: 100%; object-fit: cover"
+                >
+                  <source src="/media/sample-youtube.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="meta">
+                <div>YouTube Pre‑Roll</div>
+                <div class="muted">16:9 · 1:1</div>
+              </div>
+            </article>
+          </div>
+
+          <h3 style="margin-top: 26px">Dynamic Banners (HTML5/GIF)</h3>
+          <div class="grid cols-3" style="margin-top: 12px">
+            <article class="card">
+              <div class="media">
+                <img src="/media/dyn-banner-160x600.gif" alt="banner" />
+              </div>
+              <div class="meta">
+                <div>Skyscraper 160×600 (Dynamic)</div>
+                <div class="muted">Dynamic</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="media">
+                <img src="/media/dyn-banner-300x250.gif" alt="banner" />
+              </div>
+              <div class="meta">
+                <div>MPU 300×250 (Dynamic)</div>
+                <div class="muted">Dynamic</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="media">
+                <img src="/media/dyn-banner-728x90.gif" alt="banner" />
+              </div>
+              <div class="meta">
+                <div>Leaderboard 728×90 (Dynamic)</div>
+                <div class="muted">Dynamic</div>
+              </div>
+            </article>
+          </div>
+
+          <h3 style="margin-top: 26px">Landing Page Variants</h3>
+          <div class="grid cols-3" style="margin-top: 12px">
+            <article class="card">
+              <div class="media">
+                <img src="/media/sample-landing1.jpg" alt="landing" />
+              </div>
+              <div class="meta">
+                <div>LP Variant A — Hero + Social Proof</div>
+                <div class="muted">A/B Ready</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="media">
+                <img src="/media/sample-landing2.jpg" alt="landing" />
+              </div>
+              <div class="meta">
+                <div>LP Variant B — Problem → Outcome</div>
+                <div class="muted">A/B Ready</div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="media">
+                <img src="/media/sample-landing3.jpg" alt="landing" />
+              </div>
+              <div class="meta">
+                <div>LP Variant C — Feature Ladder</div>
+                <div class="muted">A/B Ready</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Value Props -->
+      <section>
+        <div class="wrap">
+          <div class="grid cols-3">
+            <div class="panel">
+              <h3 style="margin: 0 0 6px 0">Angle‑First Creative</h3>
+              <p class="small">
+                Map hooks → pains → outcomes. Variants per angle for disciplined
+                testing.
+              </p>
+            </div>
+            <div class="panel">
+              <h3 style="margin: 0 0 6px 0">Variant‑Smart at Speed</h3>
+              <p class="small">
+                Batch deliverables across video / banners / LP blocks with clean
+                naming.
+              </p>
+            </div>
+            <div class="panel">
+              <h3 style="margin: 0 0 6px 0">On‑Brand & Human‑Directed</h3>
+              <p class="small">
+                AI acceleration with human taste, safety, and compliance
+                built‑in.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fast Process -->
+      <section>
+        <div class="wrap">
+          <div class="panel">
+            <h2>Fast Process</h2>
+            <div class="process-grid" style="margin-top: 14px">
+              <div class="panel">
+                <div style="font-weight: 700">Variant Sprint</div>
+                <div class="small" style="margin-top: 8px">
+                  Generate & edit videos, dynamic banners, LP sections. Lock
+                  brand rules.
+                </div>
+              </div>
+              <div class="panel">
+                <div style="font-weight: 700">Launch & Learn</div>
+                <div class="small" style="margin-top: 8px">
+                  Ship assets + UTMs. Your team launches. We read early signals.
+                </div>
+              </div>
+              <div class="panel">
+                <div style="font-weight: 700">Scale</div>
+                <div class="small" style="margin-top: 8px">
+                  Double down on winners. Localize, add formats, refresh hooks.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="cta">
+        <div class="wrap">
+          <div class="cta-grid">
+            <div
+              class="panel"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  rgba(217, 70, 239, 0.06),
+                  rgba(56, 189, 248, 0.04),
+                  rgba(251, 146, 60, 0.03)
+                );
+                height: 100%;
+              "
+            >
+              <h3 style="margin: 0">Get a Free Creative Mini‑Pack</h3>
+              <p class="small" style="margin-top: 8px">
+                1 short video + 3 dynamic banners. Yours to keep. 24–72h
+                turnaround based on inputs.
+              </p>
+              <ul
+                style="
+                  margin-top: 12px;
+                  color: rgba(255, 255, 255, 0.8);
+                  font-size: 14px;
+                  padding-left: 18px;
+                "
+              >
+                <li>No obligation.</li>
+                <li>On‑brand, editable files.</li>
+              </ul>
+            </div>
+
+            <form
+              class="panel"
+              onsubmit="event.preventDefault(); alert('Дякуємо! Ми зв`яжемося з вами.')"
+            >
+              <label class="small">Work email</label>
+              <input type="email" placeholder="you@brand.com" required />
+
+              <label class="small">I'm most interested in</label>
+              <select>
+                <option>All listed</option>
+                <option>UGC & Short Video</option>
+                <option>Dynamic Banners</option>
+                <option>Landing Page Variants</option>
+                <option>Always‑on Creative Sprints</option>
+              </select>
+
+              <button type="submit">Send & Book</button>
+              <div
+                style="
+                  text-align: center;
+                  margin-top: 8px;
+                  font-size: 13px;
+                  color: rgba(255, 255, 255, 0.6);
+                "
+              >
+                or email
+                <a
+                  href="mailto:hello@gostellarai.com"
+                  style="
+                    color: rgba(255, 255, 255, 0.85);
+                    text-decoration: underline;
+                  "
+                  >hello@gostellarai.com</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Verticals -->
+      <section>
+        <div class="wrap">
+          <h2>Use Cases & Verticals</h2>
+          <div class="use-grid" style="margin-top: 12px">
+            <div class="panel">
+              <div style="font-weight: 700">E‑commerce</div>
+              <div class="small" style="margin-top: 6px">
+                UGC explainers, bundle upsell videos, PDP sections, welcome
+                flows.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Apps & SaaS</div>
+              <div class="small" style="margin-top: 6px">
+                Feature reveals, objection handlers, onboarding screens.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Health & Wellness</div>
+              <div class="small" style="margin-top: 6px">
+                Claims‑aware framing, before/after alternates, compliance
+                captions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div
+        class="wrap"
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        "
+      >
+        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.6)">
+          © 2025 GoStellarAI. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 12px">
+          <a
+            href="https://www.gostellarai.com"
+            style="color: rgba(255, 255, 255, 0.8); text-decoration: underline"
+            >Website</a
+          ><a
+            href="#cta"
+            style="color: rgba(255, 255, 255, 0.8); text-decoration: underline"
+            >Free Mini‑Pack</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

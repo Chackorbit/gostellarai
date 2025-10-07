@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GoStellarAI — Creative (HTML/CSS)</title>
+    <style>
+      :root {
+        --bg: #070814;
+        --panel: rgba(255, 255, 255, 0.03);
+        --muted: rgba(255, 255, 255, 0.7);
+        --accent-1: #d946ef; /* fuchsia */
+        --accent-2: #38bdf8; /* sky */
+        --accent-3: #fb923c; /* orange */
+        --glass: rgba(255, 255, 255, 0.06);
+        --radius: 20px;
+        --maxw: 1100px;
+      }
+      * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: linear-gradient(90deg, var(--bg), #000);
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.4;
+      }
+      .container {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      /* header */
+      header {
+        backdrop-filter: blur(6px);
+        background: rgba(11, 15, 26, 0.65);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        position: sticky;
+        top: 0;
+        z-index: 40;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand img {
+        height: 28px;
+      }
+      .btn-cta {
+        background: linear-gradient(
+          90deg,
+          var(--accent-1),
+          var(--accent-2),
+          var(--accent-3)
+        );
+        color: #000;
+        padding: 8px 14px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* hero */
+      .hero {
+        padding: 56px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .glow {
+        position: absolute;
+        inset: 0;
+        filter: blur(80px);
+        opacity: 0.5;
+        pointer-events: none;
+        background: radial-gradient(
+            600px 300px at 15% 10%,
+            rgba(217, 70, 239, 0.18),
+            transparent 20%
+          ),
+          radial-gradient(
+            400px 200px at 85% 20%,
+            rgba(56, 189, 248, 0.12),
+            transparent 25%
+          ),
+          radial-gradient(
+            400px 200px at 50% 80%,
+            rgba(251, 146, 60, 0.08),
+            transparent 25%
+          );
+      }
+      h1 {
+        font-size: 36px;
+        margin: 0;
+      }
+      h1 .grad {
+        background: linear-gradient(
+          90deg,
+          var(--accent-1),
+          var(--accent-2),
+          var(--accent-3)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      p.lead {
+        color: var(--muted);
+        margin-top: 10px;
+        font-size: 16px;
+      }
+
+      .center-cta {
+        margin-top: 22px;
+      }
+      .center-cta .btn-white {
+        background-color: #fff;
+        color: #000;
+        padding: 12px 18px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background 0.5s ease-in-out;
+      }
+      .center-cta .btn-white:hover {
+        background: var(--accent-2);
+      }
+
+      /* sections */
+      section {
+        padding: 36px 0;
+      }
+      h2 {
+        font-size: 22px;
+        margin: 0 0 18px 0;
+      }
+
+      /* grid cards */
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+      .grid.cols-4 {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media (min-width: 640px) {
+        .grid.cols-4 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .grid.cols-4 {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: var(--panel);
+        padding: 18px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .card h3 {
+        margin: 0 0 8px 0;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .card a {
+        display: inline-block;
+        margin-top: 12px;
+        color: var(--accent-2);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* samples */
+      .samples-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      @media (min-width: 768px) {
+        .samples-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .media-card {
+        background: rgba(0, 0, 0, 0.45);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .media-card img,
+      .media-card video {
+        display: block;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      .media-card .label {
+        padding: 10px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* packages */
+      .packages {
+        display: grid;
+        gap: 16px;
+      }
+      @media (min-width: 900px) {
+        .packages {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .pkg {
+        padding: 18px;
+        border-radius: 18px;
+        background: var(--panel);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .pkg.highlight {
+        border-color: rgba(217, 70, 239, 0.22);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .pkg h4 {
+        margin: 0;
+      }
+      .pkg .price {
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .pkg ul {
+        padding-left: 18px;
+        margin-top: 10px;
+        color: var(--muted);
+      }
+      .pkg a {
+        display: inline-block;
+        margin-top: 12px;
+        background: #fff;
+        color: #000;
+        padding: 10px 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      /* cta form */
+      .cta-card {
+        padding: 22px;
+        border-radius: 18px;
+        background: linear-gradient(
+          180deg,
+          rgba(217, 70, 239, 0.06),
+          rgba(56, 189, 248, 0.03)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      form {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+      }
+      select {
+        appearance: none;
+      }
+      button {
+        background: #fff;
+        color: #000;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 20px 0;
+        margin-top: 30px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: underline;
+        margin-left: 12px;
+      }
+
+      /* small helpers */
+      .muted {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <img src="./img/logo.png" alt="logo" />
+          <div style="font-weight: 600">GoStellarAI Creative</div>
+        </div>
+        <a class="btn-cta" href="#cta">Get Free Creative Mini‑Pack</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="glow" aria-hidden></div>
+          <h1>
+            <span class="grad">AI‑Powered Creatives</span> for Every Format
+          </h1>
+          <p class="lead">
+            Multi‑format packs in days—not weeks. Direct, bold, and built to
+            sell.
+          </p>
+          <div class="center-cta">
+            <a class="btn-white" href="#cta"
+              >Get Your Free Creative Mini‑Pack</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <h2>What We Create</h2>
+        <div class="grid cols-4" style="margin-top: 12px">
+          <div class="card">
+            <h3>Videos</h3>
+            <p>UGC, creative, and YouTube ads that drive conversions.</p>
+            <a href="#cta">Get Free Sample →</a>
+          </div>
+          <div class="card">
+            <h3>Banners</h3>
+            <p>
+              Static and carousel banners in all key formats, optimized for
+              engagement.
+            </p>
+            <a href="#cta">Get Free Sample →</a>
+          </div>
+          <div class="card">
+            <h3>Landing Pages</h3>
+            <p>
+              AI‑driven LP blocks — hero, proof, CTA — ready for A/B or
+              localization.
+            </p>
+            <a href="#cta">Get Free Sample →</a>
+          </div>
+          <div class="card">
+            <h3>AI Mascot & Brand Story</h3>
+            <p>
+              Turn your brand into a living character with AI‑generated mascots
+              and narratives.
+            </p>
+            <a href="#cta">Get Free Sample →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <h2>Creative Samples</h2>
+
+        <h3 style="margin-top: 12px">Video Samples</h3>
+        <div class="grid samples-grid" style="margin-top: 10px">
+          <div class="media-card">
+            <video src="/media/sample-ugc.mp4" muted loop playsinline></video>
+            <div class="label">UGC Short Video</div>
+          </div>
+          <div class="media-card">
+            <video src="/media/sample-reel.mp4" muted loop playsinline></video>
+            <div class="label">Creative Reel</div>
+          </div>
+          <div class="media-card">
+            <video
+              src="/media/sample-youtube.mp4"
+              muted
+              loop
+              playsinline
+            ></video>
+            <div class="label">YouTube Ad</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 18px">Banner Samples</h3>
+        <div class="grid samples-grid" style="margin-top: 10px">
+          <div class="media-card">
+            <img src="/media/sample-banner1.jpg" alt="banner" />
+            <div class="label">Static Banner 1</div>
+          </div>
+          <div class="media-card">
+            <img src="/media/sample-banner2.jpg" alt="banner" />
+            <div class="label">Static Banner 2</div>
+          </div>
+          <div class="media-card">
+            <img src="/media/sample-carousel.jpg" alt="banner" />
+            <div class="label">Carousel Set</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 18px">Landing Page Samples</h3>
+        <div class="grid samples-grid" style="margin-top: 10px">
+          <div class="media-card">
+            <img src="/media/sample-landing1.jpg" alt="lp" />
+            <div class="label">Landing Page Variant A</div>
+          </div>
+          <div class="media-card">
+            <img src="/media/sample-landing2.jpg" alt="lp" />
+            <div class="label">Landing Page Variant B</div>
+          </div>
+          <div class="media-card">
+            <img src="/media/sample-landing3.jpg" alt="lp" />
+            <div class="label">Landing Page Variant C</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <h2>Packages</h2>
+        <div class="packages" style="margin-top: 12px">
+          <div class="pkg">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <h4>Starter Pack</h4>
+              <div class="price">$999</div>
+            </div>
+            <p class="muted" style="margin-top: 6px">
+              Kickstart your creative engine fast.
+            </p>
+            <ul>
+              <li>1 UGC or creative video</li>
+              <li>3 static banners (3 formats each)</li>
+              <li>Delivery in under 5 days</li>
+            </ul>
+            <a href="#cta">Get Free Mini‑Pack</a>
+          </div>
+
+          <div class="pkg highlight">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <h4>Growth Pack</h4>
+              <div class="price">$3,900</div>
+            </div>
+            <p class="muted" style="margin-top: 6px">
+              Angle‑First Creative with mapped hooks.
+            </p>
+            <ul>
+              <li>3 videos (UGC or creative)</li>
+              <li>12 static banners or carousels</li>
+              <li>LP hero + CTA sections</li>
+            </ul>
+            <a href="#cta">Get Free Mini‑Pack</a>
+          </div>
+
+          <div class="pkg">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <h4>Tailored Pack</h4>
+              <div class="price">Custom</div>
+            </div>
+            <p class="muted" style="margin-top: 6px">
+              Based on your goals and market needs.
+            </p>
+            <ul>
+              <li>Custom creative sprint plan</li>
+              <li>Localization and compliance</li>
+              <li>Dedicated creative lead</li>
+            </ul>
+            <a href="#cta">Get Free Mini‑Pack</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="container">
+        <div class="cta-card">
+          <h3 style="text-align: center; margin: 0 0 10px 0">
+            Get a Free Creative Mini‑Pack
+          </h3>
+          <p
+            class="muted"
+            style="text-align: center; max-width: 720px; margin: 0 auto 16px"
+          >
+            Receive 1 video and 3 banners, free of charge — yours to keep.
+          </p>
+          <form
+            onsubmit="event.preventDefault();alert('Дякуємо! Ми звʼяжемося з вами.')"
+          >
+            <input type="email" placeholder="you@brand.com" required />
+            <select style="margin-top: 10px">
+              <option>All listed</option>
+              <option>UGC & Short Video</option>
+              <option>Banner Pack</option>
+              <option>Landing Page Variants</option>
+              <option>AI Mascot Creation</option>
+            </select>
+            <button style="margin-top: 12px">Send Request</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div
+        class="container"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          flex-wrap: wrap;
+        "
+      >
+        <div style="font-size: 13px; color: rgba(255, 255, 255, 0.55)">
+          © 2025 GoStellarAI. All rights reserved.
+        </div>
+        <div class="footer-links" style="font-size: 13px">
+          <a href="https://www.gostellarai.com" target="_blank" rel="noreferrer"
+            >Website</a
+          >
+          <a href="#cta">Get Free Mini‑Pack</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
