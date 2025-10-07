@@ -54,12 +54,13 @@
         align-items: center;
         justify-content: space-between;
         gap: 16px;
-        padding: 12px 0;
+        padding: 12px 15;
       }
       .brand {
         display: flex;
         align-items: center;
         gap: 10px;
+        font-size: 14px;
       }
       .brand img {
         height: 28px;
@@ -76,6 +77,8 @@
         border-radius: 14px;
         text-decoration: none;
         font-weight: 600;
+        font-size: 12px;
+        text-align: center;
       }
 
       /* hero */
@@ -132,6 +135,7 @@
         margin-top: 22px;
       }
       .center-cta .btn-white {
+        display: inline-block;
         background-color: #fff;
         color: #000;
         padding: 12px 18px;
@@ -359,7 +363,7 @@
           <div class="card">
             <h3>Videos</h3>
             <p>UGC, creative, and YouTube ads that drive conversions.</p>
-            <a href="#cta">Get Free Sample →</a>
+            <a href="#videoSamples">Get Free Sample →</a>
           </div>
           <div class="card">
             <h3>Banners</h3>
@@ -367,7 +371,7 @@
               Static and carousel banners in all key formats, optimized for
               engagement.
             </p>
-            <a href="#cta">Get Free Sample →</a>
+            <a href="#bannerSamples">Get Free Sample →</a>
           </div>
           <div class="card">
             <h3>Landing Pages</h3>
@@ -375,7 +379,7 @@
               AI‑driven LP blocks — hero, proof, CTA — ready for A/B or
               localization.
             </p>
-            <a href="#cta">Get Free Sample →</a>
+            <a href="#bannerSamples">Get Free Sample →</a>
           </div>
           <div class="card">
             <h3>AI Mascot & Brand Story</h3>
@@ -391,47 +395,62 @@
       <section class="container">
         <h2>Creative Samples</h2>
 
-        <h3 style="margin-top: 12px">Video Samples</h3>
+        <h3 style="margin-top: 12px" id="videoSamples">Video Samples</h3>
         <div class="grid samples-grid" style="margin-top: 10px">
           <div class="media-card">
-            <video src="/media/sample-ugc.mp4" muted loop playsinline></video>
+            <video
+              src="https://github.com/Chackorbit/gostellarai/blob/main/LP_final2.mp4?raw=true"
+              muted
+              loop
+              playsinline
+              controls
+            ></video>
             <div class="label">UGC Short Video</div>
           </div>
           <div class="media-card">
-            <video src="/media/sample-reel.mp4" muted loop playsinline></video>
+            <video
+              src="https://github.com/Chackorbit/gostellarai/blob/main/LD-ALL-ALL-NoLocation-ActAIM1-ALL-HookCanadaDay-V1-Vid-16to9.mp4?raw=true"
+              muted
+              loop
+              playsinline
+              controls
+            ></video>
             <div class="label">Creative Reel</div>
           </div>
           <div class="media-card">
             <video
-              src="/media/sample-youtube.mp4"
+              src="https://github.com/Chackorbit/gostellarai/blob/main/LD-ALL-ALL-NoLocation-ActAIMoo1-ALL-HookLabourDay-MoosePilot-Vid-1to1.mp4?raw=true"
               muted
               loop
               playsinline
+              controls
             ></video>
             <div class="label">YouTube Ad</div>
           </div>
         </div>
 
-        <h3 style="margin-top: 18px">Banner Samples</h3>
+        <h3 style="margin-top: 18px" id="bannerSamples">Banner Samples</h3>
         <div class="grid samples-grid" style="margin-top: 10px">
           <div class="media-card">
-            <img src="/media/sample-banner1.jpg" alt="banner" />
+            <img src="/img/promoImg/1.png" alt="banner" />
             <div class="label">Static Banner 1</div>
           </div>
           <div class="media-card">
-            <img src="/media/sample-banner2.jpg" alt="banner" />
+            <img src="/img/promoImg/4.png" alt="banner" />
             <div class="label">Static Banner 2</div>
           </div>
           <div class="media-card">
-            <img src="/media/sample-carousel.jpg" alt="banner" />
+            <img src="/img/promoImg/3.png" alt="banner" />
             <div class="label">Carousel Set</div>
           </div>
         </div>
 
-        <h3 style="margin-top: 18px">Landing Page Samples</h3>
+        <h3 style="margin-top: 18px" id="landingSamples">
+          Landing Page Samples
+        </h3>
         <div class="grid samples-grid" style="margin-top: 10px">
           <div class="media-card">
-            <img src="/media/sample-landing1.jpg" alt="lp" />
+            <img src="./img/promoImg/landingPage.png" alt="lp" />
             <div class="label">Landing Page Variant A</div>
           </div>
           <div class="media-card">
