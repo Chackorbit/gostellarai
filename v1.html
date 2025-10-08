@@ -406,6 +406,53 @@
       .co-text {
         color: var(--accent-2);
       }
+
+      .popup-overlay {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(10, 16, 28, 0.55);
+        z-index: 9999;
+        animation: fadeIn 0.2s;
+      }
+      .popup-content {
+        position: relative;
+        background: #232336;
+        color: #fff;
+        font-size: 1.18rem;
+        border-radius: 14px;
+        padding: 2.6em 2em 1.9em 2em;
+        min-width: 250px;
+        max-width: 90vw;
+        box-shadow: 0 0 24px #a02bee44;
+        text-align: center;
+      }
+      .popup-close {
+        position: absolute;
+        right: 16px;
+        top: 8px;
+        font-size: 2rem;
+        color: #bbb;
+        cursor: pointer;
+        line-height: 1;
+        transition: color 0.25s;
+      }
+      .popup-close:hover {
+        color: #fff;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
     </style>
   </head>
   <body>
@@ -656,15 +703,27 @@
           >
             1 sample video and 1 banners, free of charge — yours to keep.
           </p>
-          <form
-            onsubmit="event.preventDefault();alert('Дякуємо! Ми звʼяжемося з вами.')"
-          >
-            <input type="email" placeholder="you@brand.com" required />
 
+          <form id="contactForm">
+            <input
+              type="email"
+              name="email"
+              placeholder="you@brand.com"
+              required
+            />
             <button class="formBtn" style="margin-top: 12px">
               Send Request
             </button>
           </form>
+
+          <!-- Popup -->
+          <div class="popup-overlay" id="popupOverlay" style="display: none">
+            <div class="popup-content">
+              <span class="popup-close" id="popupClose">&times;</span>
+              <p>Thank you! We will contact you shortly.</p>
+            </div>
+          </div>
+
           <div
             style="
               text-align: center;
@@ -770,5 +829,45 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const form = document.getElementById("contactForm");
+      const popup = document.getElementById("popupOverlay");
+      const closeBtn = document.getElementById("popupClose");
+      let popupTimeout;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        fetch("https://formsubmit.co/ajax/greta.urman@gostellarai.com", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        }).then((response) => {
+          if (response.ok) {
+            showPopup();
+            form.reset();
+          }
+        });
+      });
+
+      function showPopup() {
+        popup.style.display = "flex";
+        clearTimeout(popupTimeout);
+        popupTimeout = setTimeout(hidePopup, 4000);
+      }
+
+      function hidePopup() {
+        popup.style.display = "none";
+      }
+
+      closeBtn.onclick = hidePopup;
+
+      popup.onclick = function (event) {
+        if (event.target === popup) hidePopup();
+      };
+    </script>
   </body>
 </html>
