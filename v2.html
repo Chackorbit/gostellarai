@@ -64,8 +64,17 @@
         align-items: center;
         gap: 10px;
       }
+      .logo-link {
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s ease;
+      }
+
+      .logo-link:hover {
+        color: var(--accent2);
+      }
       .brand img {
-        height: 28px;
+        height: 80px;
       }
       .cta-btn {
         background: linear-gradient(
@@ -237,22 +246,35 @@
         background: var(--glass);
         overflow: hidden;
       }
-      .card .media {
-        height: 0;
-        padding-bottom: 66.66%;
-        background: #0b0f14;
-        display: block;
-      }
 
-      .card .media video {
-        height: 180px;
-        width: 100%;
-        object-fit: cover;
+      .media {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: rgba(0, 0, 0, 0.45);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .media img {
         display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .media video {
+        display: block;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+      .media .label {
+        padding: 10px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
       }
       .card img {
         width: 100%;
-        height: 210px;
         object-fit: cover;
         display: block;
       }
@@ -374,15 +396,64 @@
           grid-template-columns: 1fr;
         }
       }
+
+      footer .container {
+        padding: 0 20px;
+      }
+      .footerLogo {
+        height: 120px;
+      }
+
+      @media screen and (max-width: 600px) {
+        footer .container {
+          flex-direction: column;
+        }
+      }
+      .formBtn {
+        background: linear-gradient(
+          90deg,
+          var(--accent1),
+          var(--accent2),
+          var(--accent3)
+        );
+      }
+
+      .special-offer span {
+        background: linear-gradient(
+          90deg,
+          var(--accent1),
+          var(--accent2),
+          var(--accent3)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: underline;
+        margin-left: 12px;
+      }
+
+      .co-text {
+        color: var(--accent-2);
+      }
     </style>
   </head>
   <body>
     <div class="topbar">
       <div class="wrap topbar-inner">
-        <div class="brand">
-          <img src="./img/logo.png" alt="GoStellarAI logo" />
-          <div style="font-weight: 600">GoStellarAI</div>
-        </div>
+        <a
+          class="brand logo-link"
+          href="https://www.gostellarai.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img class="logo" src="./img/logo.png" alt="logo" />
+          <div style="font-weight: 600">GoStellarAI Creative</div>
+        </a>
         <a class="cta-btn" href="#cta">Get Free Creative Mini‑Pack</a>
       </div>
     </div>
@@ -397,8 +468,8 @@
               <span class="accent-text">sell, scale, and stay on‑brand</span>
             </h1>
             <p>
-              Multi‑format packs in days—not weeks. Direct, bold, built to
-              convert.
+              Multi‑format packs in days — not weeks. Direct, bold, and built to
+              sell.
             </p>
             <div class="hero-actions">
               <a class="btn-outline" href="#gallery">See Samples</a>
@@ -425,7 +496,7 @@
             <div class="video-wrap">
               <video autoplay loop muted playsinline>
                 <source
-                  src="https://github.com/Chackorbit/lucky-days/blob/main/LP_final2.mp4?raw=true"
+                  src="https://res.cloudinary.com/dczqamhgn/video/upload/v1759853798/LP_final2_vdwlne.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -461,11 +532,12 @@
             <article class="card">
               <div class="media">
                 <video
-                  src="/LP_final2.mp4"
+                  src="https://res.cloudinary.com/dczqamhgn/video/upload/v1759853794/LD-ALL-ALL-NoLocation-ActAIMoo1-ALL-HookLabourDay-MoosePilot-Vid-1to1_jfnfco.mp4"
                   muted
                   loop
                   playsinline
                   controls
+                  preload="auto"
                 ></video>
               </div>
               <div class="meta">
@@ -477,11 +549,12 @@
             <article class="card">
               <div class="media">
                 <video
-                  src="/LD-ALL-ALL-NoLocation-ActAIBB1-ALL-HookCanadaDay-V1-Vid-16to9.mp4"
+                  src="https://res.cloudinary.com/dczqamhgn/video/upload/v1759853802/50__1_1_EN__CNsub_yke8hf.mp4"
                   muted
                   loop
                   playsinline
                   controls
+                  preload="auto"
                 ></video>
               </div>
               <div class="meta">
@@ -493,11 +566,12 @@
             <article class="card">
               <div class="media">
                 <video
-                  src="./LD-ALL-ALL-NoLocation-ActAIM1-ALL-HookCanadaDay-V1-Vid-16to9.mp4"
+                  src="https://res.cloudinary.com/dczqamhgn/video/upload/v1759853798/LD-ALL-ALL-NoLocation-ActAIM1-ALL-HookCanadaDay-V1-Vid-16to9_hiaull.mp4"
                   muted
                   loop
                   playsinline
                   controls
+                  preload="auto"
                 ></video>
               </div>
               <div class="meta">
@@ -511,7 +585,7 @@
           <div class="grid cols-3" style="margin-top: 12px">
             <article class="card">
               <div class="media">
-                <img src="./img/promoImg/7.png" alt="banner" />
+                <img src="/img/promoImg/1.png" alt="banner" />
               </div>
               <div class="meta">
                 <div>Skyscraper 160×600 (Dynamic)</div>
@@ -520,7 +594,7 @@
             </article>
             <article class="card">
               <div class="media">
-                <img src="./img/promoImg/6.png" alt="banner" />
+                <img src="./img/promoImg/4.png" alt="banner" />
               </div>
               <div class="meta">
                 <div>MPU 300×250 (Dynamic)</div>
@@ -529,7 +603,7 @@
             </article>
             <article class="card">
               <div class="media">
-                <img src="./img/promoImg/5.png" alt="banner" />
+                <img src="./img/promoImg/3.png" alt="banner" />
               </div>
               <div class="meta">
                 <div>Leaderboard 728×90 (Dynamic)</div>
@@ -551,7 +625,7 @@
             </article>
             <article class="card">
               <div class="media">
-                <img src="/media/sample-landing2.jpg" alt="landing" />
+                <img src="./img/promoImg/ldLanding.png" alt="landing" />
               </div>
               <div class="meta">
                 <div>LP Variant B — Problem → Outcome</div>
@@ -559,8 +633,8 @@
               </div>
             </article>
             <article class="card">
-              <div class="media">
-                <img src="/media/sample-landing3.jpg" alt="landing" />
+              <div class="media" style="height: 210px">
+                <img src="./img/promoImg/frame.jpg" alt="landing" />
               </div>
               <div class="meta">
                 <div>LP Variant C — Feature Ladder</div>
@@ -646,6 +720,29 @@
                 height: 100%;
               "
             >
+              <p
+                class="muted special-offer"
+                style="
+                  text-align: center;
+                  max-width: 720px;
+                  margin: 0 auto 0px;
+                  font-weight: 700;
+                  font-size: 18px;
+                "
+              >
+                <span>Special Offer* </span>
+              </p>
+              <p
+                class="muted co-text"
+                style="
+                  text-align: center;
+                  max-width: 720px;
+                  margin: 0 auto 16px;
+                "
+              >
+                Exclusive one-time use — don’t miss it!
+              </p>
+
               <h3 style="margin: 0">Get a Free Creative Mini‑Pack</h3>
               <p class="small" style="margin-top: 8px">
                 1 short video + 3 dynamic banners. Yours to keep. 24–72h
@@ -659,8 +756,9 @@
                   padding-left: 18px;
                 "
               >
-                <li>No obligation.</li>
-                <li>On‑brand, editable files.</li>
+                <li>
+                  1 sample video and 1 banners, free of charge — yours to keep.
+                </li>
               </ul>
             </div>
 
@@ -670,15 +768,6 @@
             >
               <label class="small">Work email</label>
               <input type="email" placeholder="you@brand.com" required />
-
-              <label class="small">I'm most interested in</label>
-              <select>
-                <option>All listed</option>
-                <option>UGC & Short Video</option>
-                <option>Dynamic Banners</option>
-                <option>Landing Page Variants</option>
-                <option>Always‑on Creative Sprints</option>
-              </select>
 
               <button type="submit">Send & Book</button>
               <div
@@ -691,12 +780,12 @@
               >
                 or email
                 <a
-                  href="mailto:hello@gostellarai.com"
+                  href="mailto:info@gostellarai.com"
                   style="
                     color: rgba(255, 255, 255, 0.85);
                     text-decoration: underline;
                   "
-                  >hello@gostellarai.com</a
+                  >info@gostellarai.com</a
                 >
               </div>
             </form>
@@ -706,27 +795,49 @@
 
       <!-- Verticals -->
       <section>
-        <div class="wrap">
+        <div class="wrap container">
           <h2>Use Cases & Verticals</h2>
           <div class="use-grid" style="margin-top: 12px">
             <div class="panel">
               <div style="font-weight: 700">E‑commerce</div>
               <div class="small" style="margin-top: 6px">
-                UGC explainers, bundle upsell videos, PDP sections, welcome
-                flows.
+                Product explainers, bundle ads, PDP videos, and UGC promos that
+                sell.
               </div>
             </div>
             <div class="panel">
               <div style="font-weight: 700">Apps & SaaS</div>
               <div class="small" style="margin-top: 6px">
-                Feature reveals, objection handlers, onboarding screens.
+                Feature teasers, onboarding clips, and quick “how-it-works”
+                demos.
               </div>
             </div>
             <div class="panel">
               <div style="font-weight: 700">Health & Wellness</div>
               <div class="small" style="margin-top: 6px">
-                Claims‑aware framing, before/after alternates, compliance
-                captions.
+                Before/after reels, claims-safe stories, and confident brand
+                explainers.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Travel & Hospitality</div>
+              <div class="small" style="margin-top: 6px">
+                Destination reels, offer banners, trip teasers, and experience
+                showcases.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Gaming & Entertainment</div>
+              <div class="small" style="margin-top: 6px">
+                Hype trailers, creator collabs, and anti-fatigue creative
+                rotations.
+              </div>
+            </div>
+            <div class="panel">
+              <div style="font-weight: 700">Education</div>
+              <div class="small" style="margin-top: 6px">
+                Course teasers, instructor UGC, and launch campaigns for
+                cohorts.
               </div>
             </div>
           </div>
@@ -736,28 +847,33 @@
 
     <footer>
       <div
-        class="wrap"
+        class="container wrap"
         style="
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          justify-content: space-between;
           gap: 12px;
           flex-wrap: wrap;
         "
       >
-        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.6)">
+        <div style="font-size: 13px; color: rgba(255, 255, 255, 0.55)">
           © 2025 GoStellarAI. All rights reserved.
         </div>
-        <div style="display: flex; gap: 12px">
-          <a
-            href="https://www.gostellarai.com"
-            style="color: rgba(255, 255, 255, 0.8); text-decoration: underline"
+
+        <a
+          class="logo-link"
+          href="https://www.gostellarai.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img class="footerLogo logo" src="./img/logo.png" alt="logo" />
+        </a>
+
+        <div class="footer-links" style="font-size: 13px">
+          <a href="https://www.gostellarai.com" target="_blank" rel="noreferrer"
             >Website</a
-          ><a
-            href="#cta"
-            style="color: rgba(255, 255, 255, 0.8); text-decoration: underline"
-            >Free Mini‑Pack</a
           >
+          <a href="#cta">Get Free Mini‑Pack</a>
         </div>
       </div>
     </footer>
